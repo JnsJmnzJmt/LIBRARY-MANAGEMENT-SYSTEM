@@ -29,9 +29,10 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             } elseif ($file_size > 5 * 1024 * 1024) {
                 $error = "Image must be smaller than 5MB.";
             } else {
-                $ext = pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
+                $ext        = pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
                 $image_name = uniqid('book_', true) . '.' . $ext;
-                $upload_path = "../image/" . $image_name;
+                $upload_path = $_SERVER['DOCUMENT_ROOT'] . "/library_MS/image/" . $image_name;
+
                 if (!move_uploaded_file($_FILES['image']['tmp_name'], $upload_path)) {
                     $error = "Failed to upload image. Check folder permissions.";
                     $image_name = "";
@@ -43,7 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             $stmt = $connection->prepare("INSERT INTO books (title, author, isbn, image, quantity) VALUES (?, ?, ?, ?, ?)");
             $stmt->bind_param("ssssi", $title, $author, $isbn, $image_name, $quantity);
             if ($stmt->execute()) {
-                $success = "Book added successfully!";
+                $success = "Book \"$title\" added successfully!";
             } else {
                 $error = "Failed to add book. ISBN might already exist.";
             }
@@ -66,7 +67,11 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
 <div class="layout">
     <aside class="sidebar">
-        <div class="sidebar-logo"><h2>📚 LMS</h2><span>Admin Panel</span></div>
+        <div class="sidebar-logo">
+            <img src="../logo.svg" alt="Logo" style="width:42px;height:42px;border-radius:50%;margin-bottom:6px;display:block;">
+            <h2>LMS</h2>
+            <span>Admin Panel</span>
+        </div>
         <div class="sidebar-user">
             <div class="user-avatar"><?php echo strtoupper(substr($admin_name, 0, 1)); ?></div>
             <div class="user-info"><small>Administrator</small><strong><?php echo htmlspecialchars($admin_name); ?></strong></div>
@@ -81,6 +86,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             <a href="manage_users.php"><span class="icon">👥</span> Manage Users</a>
             <span class="nav-label">Transactions</span>
             <a href="view_transactions.php"><span class="icon">📋</span> Transactions</a>
+            <a href="reports.php"><span class="icon">📊</span> Reports</a>
         </nav>
         <div class="sidebar-footer"><a href="../logout.php">🚪 Logout</a></div>
     </aside>

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <circle cx="100" cy="100" r="100" fill="#1a472a"/>
+  <circle cx="100" cy="100" r="85" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="20"/>
+  <!-- Books stacked -->
+  <rect x="42" y="118" width="116" height="16" rx="4" fill="#d4a017"/>
+  <rect x="48" y="99"  width="104" height="16" rx="4" fill="#f4f1eb"/>
+  <rect x="54" y="80"  width="92"  height="16" rx="4" fill="#d4a017"/>
+  <rect x="48" y="61"  width="104" height="16" rx="4" fill="#f4f1eb"/>
+  <!-- Spine lines -->
+  <line x1="64" y1="61"  x2="64" y2="77"  stroke="#1a472a" stroke-width="2.5"/>
+  <line x1="64" y1="80"  x2="64" y2="96"  stroke="#1a472a" stroke-width="2.5"/>
+  <line x1="64" y1="99"  x2="64" y2="115" stroke="#1a472a" stroke-width="2.5"/>
+  <line x1="64" y1="118" x2="64" y2="134" stroke="#1a472a" stroke-width="2.5"/>
+  <!-- Text -->
+  <text x="100" y="160" font-family="Georgia,serif" font-size="15" font-weight="bold" fill="white" text-anchor="middle" letter-spacing="4">LMS</text>
+</svg>

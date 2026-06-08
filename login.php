@@ -32,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             $_SESSION['role']      = $row['role'];
             $_SESSION['user_name'] = $row['name'];
 
-            if ($row['role'] == "user") { 
+            if ($row['role'] == "admin") { 
                 header("Location: admin/dashboard.php");
             } else {
                 header("Location: dashboard.php");
@@ -83,7 +83,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
                 <div class="form-group">
                     <label for="email">Email Address</label>
-                    <input type="email" id="email" name="email" placeholder="you@example.com" required
+                    <input type="email" id="email" name="email" placeholder="you@gmail.com" required
                            value="<?php echo isset($_POST['email']) ? htmlspecialchars($_POST['email']) : ''; ?>">
                     <span class="field-error" id="email-error">Please enter a valid email.</span>
                 </div>
