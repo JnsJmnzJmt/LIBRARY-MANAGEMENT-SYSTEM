@@ -834,7 +834,7 @@ tbody tr:hover { background: var(--gray-100); }
 
 /* ================================================
    RESPONSIVE
-   ================================================ */
+   ================================================= */
 @media (max-width: 768px) {
     .auth-banner { display: none; }
     .auth-form-side { width: 100%; padding: 40px 24px; }
