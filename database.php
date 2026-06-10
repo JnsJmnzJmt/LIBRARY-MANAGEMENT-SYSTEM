@@ -1,9 +1,9 @@
 <?php
 
-$server = "localhost";
-$user = "root";
-$password = "";
-$database_name = "library_database_third";
+$server = "sql307.infinityfree.com";
+$user = "if0_42141024";
+$password = "BGplJduBYWxTaI";
+$database_name = "if0_42141024_lms_database";
 
 $connection = new mysqli($server, $user, $password, $database_name);
 
